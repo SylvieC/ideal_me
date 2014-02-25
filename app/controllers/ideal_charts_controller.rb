@@ -17,7 +17,7 @@ class IdealChartsController < ApplicationController
     @idealchart.save
     respond_to do |format|
       format.html
-      format.json {render json: @}
+      format.json {render json: @idealchart}
     end
    end
 
@@ -34,6 +34,7 @@ class IdealChartsController < ApplicationController
    end
 
    def show
+    binding.pry
      @idealchart =IdealChart.find(params[:id])
     respond_to do |format|
       format.html
