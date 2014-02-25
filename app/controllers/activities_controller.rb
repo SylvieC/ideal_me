@@ -1,5 +1,5 @@
 class ActivitiesController < ApplicationController
-  before_filter :signed_in_user, only: [:index]
+  before_filter :authenticate_user!, only: [:index]
 
   def index
     #take out photos
@@ -31,8 +31,7 @@ class ActivitiesController < ApplicationController
 
   def update
     @activity = Activity.find(params[:id])
-    @activity.update_attributes(params.require(:activity).permit(:category_id, :realchart_id, :body))
-    redirect_to _path
+    @activity.update_attributes(params.require(:activity).permit(:body))
     respond_to do |format|
       format.html
       format.json {render json: @activity}
