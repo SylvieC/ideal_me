@@ -1,5 +1,5 @@
 class ReminderMailer < MandrillMailer::TemplateMailer
-   default from: 'miss.herico@gmail.com'
+   default from: 'thenewidealme@gmail.com'
 
   def remind(user)
   mandrill_mail template: 'Reminder',
